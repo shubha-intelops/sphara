@@ -2,6 +2,7 @@ package daos
 
 import (
 	"errors"
+
 	"github.com/shubha-intelops/sphara/signup/pkg/rest/server/daos/clients/sqls"
 	"github.com/shubha-intelops/sphara/signup/pkg/rest/server/models"
 	log "github.com/sirupsen/logrus"

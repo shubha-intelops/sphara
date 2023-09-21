@@ -1,12 +1,13 @@
 package controllers
 
 import (
+	"net/http"
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 	"github.com/shubha-intelops/sphara/signup/pkg/rest/server/models"
 	"github.com/shubha-intelops/sphara/signup/pkg/rest/server/services"
 	log "github.com/sirupsen/logrus"
-	"net/http"
-	"strconv"
 )
 
 type UploadIdController struct {
@@ -24,14 +25,23 @@ func NewUploadIdController() (*UploadIdController, error) {
 }
 
 func (uploadIdController *UploadIdController) CreateUploadId(context *gin.Context) {
-	// validate input
 	var input models.UploadId
-	if err := context.ShouldBindJSON(&input); err != nil {
+
+	input.Id_number = context.PostForm("idNumber")
+	input.Id_number = context.PostForm("idType")
+	inputFile, err := context.FormFile("file")
+	if err != nil {
+		log.Error(err)
+		context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	dst := "./" + inputFile.Filename
+	if err := context.SaveUploadedFile(inputFile, dst); err != nil {
 		log.Error(err)
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-
+	input.File = dst
 	// trigger uploadId creation
 	if _, err := uploadIdController.uploadIdService.CreateUploadId(&input); err != nil {
 		log.Error(err)
@@ -39,7 +49,7 @@ func (uploadIdController *UploadIdController) CreateUploadId(context *gin.Contex
 		return
 	}
 
-	context.JSON(http.StatusCreated, gin.H{"message": "UploadId created successfully"})
+	context.JSON(http.StatusCreated, gin.H{"message": "UploadId created successfully", "file": dst})
 }
 
 func (uploadIdController *UploadIdController) UpdateUploadId(context *gin.Context) {

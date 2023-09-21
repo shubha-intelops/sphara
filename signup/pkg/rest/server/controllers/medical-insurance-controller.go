@@ -1,12 +1,13 @@
 package controllers
 
 import (
+	"net/http"
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 	"github.com/shubha-intelops/sphara/signup/pkg/rest/server/models"
 	"github.com/shubha-intelops/sphara/signup/pkg/rest/server/services"
 	log "github.com/sirupsen/logrus"
-	"net/http"
-	"strconv"
 )
 
 type MedicalInsuranceController struct {
@@ -26,12 +27,20 @@ func NewMedicalInsuranceController() (*MedicalInsuranceController, error) {
 func (medicalInsuranceController *MedicalInsuranceController) CreateMedicalInsurance(context *gin.Context) {
 	// validate input
 	var input models.MedicalInsurance
-	if err := context.ShouldBindJSON(&input); err != nil {
+	input.Id, _ = strconv.ParseInt(context.PostForm("ID"), 10, 64) //strconv.Atoi(context.PostForm("ID"))
+	inputFile, err := context.FormFile("file")
+	if err != nil || input.Id == 0 {
+		log.Error(err)
+		context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	dst := "./" + inputFile.Filename
+	if err := context.SaveUploadedFile(inputFile, dst); err != nil {
 		log.Error(err)
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-
+	input.File = dst
 	// trigger medicalInsurance creation
 	if _, err := medicalInsuranceController.medicalInsuranceService.CreateMedicalInsurance(&input); err != nil {
 		log.Error(err)

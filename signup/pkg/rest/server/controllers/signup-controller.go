@@ -1,12 +1,13 @@
 package controllers
 
 import (
+	"net/http"
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 	"github.com/shubha-intelops/sphara/signup/pkg/rest/server/models"
 	"github.com/shubha-intelops/sphara/signup/pkg/rest/server/services"
 	log "github.com/sirupsen/logrus"
-	"net/http"
-	"strconv"
 )
 
 type SignupController struct {
@@ -33,13 +34,13 @@ func (signupController *SignupController) CreateSignup(context *gin.Context) {
 	}
 
 	// trigger signup creation
-	if _, err := signupController.signupService.CreateSignup(&input); err != nil {
+	_, err := signupController.signupService.CreateSignup(&input)
+	if err != nil {
 		log.Error(err)
 		context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-
-	context.JSON(http.StatusCreated, gin.H{"message": "Signup created successfully"})
+	context.JSON(http.StatusCreated, gin.H{"message": "Signup created successfully", "id": input.Id})
 }
 
 func (signupController *SignupController) UpdateSignup(context *gin.Context) {
