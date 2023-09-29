@@ -1,0 +1,20 @@
+# shubha-intelops/sphara/sphara
+sphara
+
+
+### REST Server
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+[![Open in DevPod!](https://devpod.sh/assets/open-in-devpod.svg)](https://devpod.sh/open#https://github.com/shubha-intelops/sphara/sphara)
