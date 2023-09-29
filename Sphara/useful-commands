@@ -1,0 +1,279 @@
+
+
+
+    
+# Curl commands for REST Server resource Signup
+# Post
+curl -X POST -H "Content-Type: application/json" \
+-d '{"Dob": "sample string","EmailId": "sample string","City": "sample string","Country": "sample string","Fullname": "sample string","R_address": "sample string","Others": "sample string","Zip": 1,"Nickname": "sample string"}' \
+http://localhost:8080/v1/signups
+
+# Get
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/signups
+
+# Put
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Zip": 1,"Nickname": "sample string","Others": "sample string","Country": "sample string","Fullname": "sample string","R_address": "sample string","Dob": "sample string","EmailId": "sample string","City": "sample string"}' \
+http://localhost:8080/v1/signups/123
+
+# Put
+### wrong id passed in param
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Zip": 1,"Nickname": "sample string","Others": "sample string","Country": "sample string","Fullname": "sample string","R_address": "sample string","Dob": "sample string","EmailId": "sample string","City": "sample string"}' \
+http://localhost:8080/v1/signups/1234
+
+# Get  (retrieve specific Signup)
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/signups/123
+
+# Delete
+curl -X DELETE -H "Content-Type: application/json" \
+http://localhost:8080/v1/signups/123
+
+    
+# Curl commands for REST Server resource MedicalCondition
+# Post
+curl -X POST -H "Content-Type: application/json" \
+-d '{"Medical_condition_details": "sample string","File": "sample string"}' \
+http://localhost:8080/v1/medicalconditions
+
+# Get
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/medicalconditions
+
+# Put
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Medical_condition_details": "sample string","File": "sample string"}' \
+http://localhost:8080/v1/medicalconditions/123
+
+# Put
+### wrong id passed in param
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Medical_condition_details": "sample string","File": "sample string"}' \
+http://localhost:8080/v1/medicalconditions/1234
+
+# Get  (retrieve specific MedicalCondition)
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/medicalconditions/123
+
+# Delete
+curl -X DELETE -H "Content-Type: application/json" \
+http://localhost:8080/v1/medicalconditions/123
+
+    
+# Curl commands for REST Server resource MedicalInsurance
+# Post
+curl -X POST -H "Content-Type: application/json" \
+-d '{"File": "sample string"}' \
+http://localhost:8080/v1/medicalinsurances
+
+# Get
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/medicalinsurances
+
+# Put
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"File": "sample string"}' \
+http://localhost:8080/v1/medicalinsurances/123
+
+# Put
+### wrong id passed in param
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"File": "sample string"}' \
+http://localhost:8080/v1/medicalinsurances/1234
+
+# Get  (retrieve specific MedicalInsurance)
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/medicalinsurances/123
+
+# Delete
+curl -X DELETE -H "Content-Type: application/json" \
+http://localhost:8080/v1/medicalinsurances/123
+
+    
+# Curl commands for REST Server resource UploadId
+# Post
+curl -X POST -H "Content-Type: application/json" \
+-d '{"Id_type": "sample string","File": "sample string","Id_number": "sample string"}' \
+http://localhost:8080/v1/uploadids
+
+# Get
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/uploadids
+
+# Put
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"File": "sample string","Id_number": "sample string","Id_type": "sample string"}' \
+http://localhost:8080/v1/uploadids/123
+
+# Put
+### wrong id passed in param
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"File": "sample string","Id_number": "sample string","Id_type": "sample string"}' \
+http://localhost:8080/v1/uploadids/1234
+
+# Get  (retrieve specific UploadId)
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/uploadids/123
+
+# Delete
+curl -X DELETE -H "Content-Type: application/json" \
+http://localhost:8080/v1/uploadids/123
+
+    
+# Curl commands for REST Server resource EmgContact
+# Post
+curl -X POST -H "Content-Type: application/json" \
+-d '{"Contact_number": "sample string","Name": "sample string","Tag": "sample string"}' \
+http://localhost:8080/v1/emgcontacts
+
+# Get
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/emgcontacts
+
+# Put
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Contact_number": "sample string","Name": "sample string","Tag": "sample string"}' \
+http://localhost:8080/v1/emgcontacts/123
+
+# Put
+### wrong id passed in param
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Contact_number": "sample string","Name": "sample string","Tag": "sample string"}' \
+http://localhost:8080/v1/emgcontacts/1234
+
+# Get  (retrieve specific EmgContact)
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/emgcontacts/123
+
+# Delete
+curl -X DELETE -H "Content-Type: application/json" \
+http://localhost:8080/v1/emgcontacts/123
+
+    
+# Curl commands for REST Server resource Ambulance
+# Post
+curl -X POST -H "Content-Type: application/json" \
+-d '{"File": "sample string","Injuredcount": 1,"Reason": "sample string"}' \
+http://localhost:8080/v1/ambulances
+
+# Get
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/ambulances
+
+# Put
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"File": "sample string","Injuredcount": 1,"Reason": "sample string"}' \
+http://localhost:8080/v1/ambulances/123
+
+# Put
+### wrong id passed in param
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"File": "sample string","Injuredcount": 1,"Reason": "sample string"}' \
+http://localhost:8080/v1/ambulances/1234
+
+# Get  (retrieve specific Ambulance)
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/ambulances/123
+
+# Delete
+curl -X DELETE -H "Content-Type: application/json" \
+http://localhost:8080/v1/ambulances/123
+
+    
+# Curl commands for REST Server resource Fire
+# Post
+curl -X POST -H "Content-Type: application/json" \
+-d '{"File": "sample string","Fire_dimension": "sample string","Flame_smoke": "sample string","People_injured_status": "sample string","Comment": "sample string"}' \
+http://localhost:8080/v1/fires
+
+# Get
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/fires
+
+# Put
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Fire_dimension": "sample string","Flame_smoke": "sample string","People_injured_status": "sample string","Comment": "sample string","File": "sample string"}' \
+http://localhost:8080/v1/fires/123
+
+# Put
+### wrong id passed in param
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Fire_dimension": "sample string","Flame_smoke": "sample string","People_injured_status": "sample string","Comment": "sample string","File": "sample string"}' \
+http://localhost:8080/v1/fires/1234
+
+# Get  (retrieve specific Fire)
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/fires/123
+
+# Delete
+curl -X DELETE -H "Content-Type: application/json" \
+http://localhost:8080/v1/fires/123
+
+    
+# Curl commands for REST Server resource Panic
+# Post
+curl -X POST -H "Content-Type: application/json" \
+-d '{"Description": "sample string","File": "sample string"}' \
+http://localhost:8080/v1/panics
+
+# Get
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/panics
+
+# Put
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Description": "sample string","File": "sample string"}' \
+http://localhost:8080/v1/panics/123
+
+# Put
+### wrong id passed in param
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Description": "sample string","File": "sample string"}' \
+http://localhost:8080/v1/panics/1234
+
+# Get  (retrieve specific Panic)
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/panics/123
+
+# Delete
+curl -X DELETE -H "Content-Type: application/json" \
+http://localhost:8080/v1/panics/123
+
+    
+# Curl commands for REST Server resource Robbery
+# Post
+curl -X POST -H "Content-Type: application/json" \
+-d '{"Value": "sample string","Address": "sample string","File": "sample string","Injured": true,"Place": "sample string","Robbed_things": "sample string"}' \
+http://localhost:8080/v1/robberies
+
+# Get
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/robberies
+
+# Put
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Robbed_things": "sample string","Value": "sample string","Address": "sample string","File": "sample string","Injured": true,"Place": "sample string"}' \
+http://localhost:8080/v1/robberies/123
+
+# Put
+### wrong id passed in param
+curl -X PUT -H "Content-Type: application/json" \
+-d '{"Id": 123,"Robbed_things": "sample string","Value": "sample string","Address": "sample string","File": "sample string","Injured": true,"Place": "sample string"}' \
+http://localhost:8080/v1/robberies/1234
+
+# Get  (retrieve specific Robbery)
+curl -X GET -H "Content-Type: application/json" \
+http://localhost:8080/v1/robberies/123
+
+# Delete
+curl -X DELETE -H "Content-Type: application/json" \
+http://localhost:8080/v1/robberies/123
+
+    
+
+# when mysql throws error about server connection, fire below commands
+# CREATE USER 'root'@'%' IDENTIFIED BY 'password';
+# GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+
